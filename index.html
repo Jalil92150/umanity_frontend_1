@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UmanitY - Accueil</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sect-bg: #1a1a1a;
+    --sect-border: #00b894;
+    --sect-hover: #00e6c5;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #0e0e0e;
+    color: white;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem 2rem;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    backdrop-filter: blur(10px);
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 5rem;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .nav-links a:hover {
+    text-decoration: underline;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+  }
+
+  .hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+  }
+
+  .hamburger.active div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .hamburger.active div:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active div:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  .hero {
+    position: relative;
+    height: 100vh;
+    background: url('images/humanitaire.jpg') center center / cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    overflow: hidden;
+  }
+
+.hero-text-wrapper {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 90%;
+  padding: 0 1rem;
+  z-index: 10;
+}
+
+.hero-tagline {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  color: #00e6c5;
+  animation: fadeGlow 2.5s ease-in-out infinite alternate;
+  word-wrap: break-word;
+  line-height: 1.3;
+}
+
+/* Grand écran : limiter largeur pour éviter chevauchement */
+@media (min-width: 992px) {
+  .hero-text-wrapper {
+    max-width: 60%;
+    top: 8%;
+  }
+}
+
+/* Animation */
+@keyframes fadeGlow {
+  0% {
+    opacity: 0.6;
+    text-shadow: 0 0 5px #00e6c5;
+  }
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 20px #00e6c5, 0 0 30px #00e6c5;
+  }
+}
+
+  .form-overlay {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+  }
+
+.form-overlay input,
+    .form-overlay select,
+    .form-overlay button {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 5px;
+    }
+
+
+  .form-overlay button {
+    background-color: var(--sect-border);
+    color: white;
+    font-weight: bold;
+  }
+
+  .form-overlay button:hover {
+    box-shadow: 0 0 12px var(--sect-border);
+  }
+
+  @media (max-width: 992px) {
+    .form-overlay {
+      display: none;
+    }
+
+    .glow-button {
+      display: inline-block;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .glow-button {
+      display: none;
+    }
+  }
+
+  .glow-button {
+    background-color: var(--sect-border);
+    color: white;
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 20px var(--sect-border);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+  }
+
+  .glow-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px var(--sect-border);
+  }
+
+  section {
+    padding: 4rem 1rem;
+    text-align: center;
+  }
+
+  /* ✅ SECTION NEWSLETTER + CONTACT */
+  #newsletter-contact {
+    background: linear-gradient(135deg, var(--sect-bg), #2f2f2f);
+    border-top: 2px solid var(--sect-border);
+    border-bottom: 2px solid var(--sect-border);
+    padding: 5rem 2rem;
+  }
+  
+  .section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    color: var(--sect-border);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-subtitle {
+    color: #ccc;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+  }
+
+  .form-control {
+    max-width: 300px;
+    background-color: #101010;
+    border: 1px solid var(--sect-border);
+    border-radius: 8px;
+    color: var(--sect-border);
+    padding: 0.8rem 1rem;
+    text-align: center;
+  }
+
+  .form-control::placeholder {
+    color: var(--sect-border);
+    font-style: italic;
+  }
+
+  .form-control:focus {
+    outline: none;
+    border-color: var(--sect-hover);
+    box-shadow: 0 0 10px rgba(0, 230, 197, 0.5);
+  }
+
+  .btn-success {
+    background-color: var(--sect-border);
+    border-color: var(--sect-border);
+    border-radius: 30px;
+    font-weight: bold;
+  }
+
+  .btn-success:hover {
+    background-color: var(--sect-hover);
+    border-color: var(--sect-hover);
+  }
+
+  .btn-outline-light {
+    border: 1px solid var(--sect-border);
+    color: white;
+    border-radius: 30px;
+    font-weight: bold;
+  }
+
+  .btn-outline-light:hover {
+    background-color: var(--sect-border);
+    color: white;
+  }
+
+  .border-end {
+    border-right: 2px solid var(--sect-border);
+  }
+
+  .social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 0.6rem 1.2rem;
+    margin: 0.5rem;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+  }
+
+  .social-btn i {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+  }
+
+   .confirmation-message,
+    .error-message {
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  animation: fadeIn 0.3s ease-in-out forwards;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.confirmation-message {
+  color: #00e6c5;
+  background-color: rgba(0, 230, 197, 0.1);
+}
+
+.error-message {
+  color: #ff6b6b;
+  background-color: rgba(255, 0, 0, 0.1);
+}
+
+
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  footer {
+    background: linear-gradient(135deg, #1a1a1a, #2f2f2f);
+    color: white;
+    padding: 3rem 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    animation: fadeInUp 0.6s ease-in-out;
+    border-top: 2px solid var(--sect-border);
+  }
+
+  footer ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+    padding: 0;
+  }
+
+  footer ul a {
+    color: var(--sect-border);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s, transform 0.3s;
+  }
+
+  footer ul a:hover {
+    color: var(--sect-hover);
+    transform: scale(1.1);
+    text-shadow: 0 0 5px var(--sect-border);
+  }
+
+  footer p {
+    color: #ccc;
+    margin-top: 1rem;
+    font-style: italic;
+  }
+  
+  @media (min-width: 768px) {
+  #newsletter-contact .ps-md-4 {
+    padding-left: 8rem !important; /* 👈 écart élargi entre colonne et trait */
+  }
+}
+  @media (min-width: 768px) {
+  #newsletter-contact .pe-md-4 {
+    padding-right: 8rem !important; /* 👈 écart élargi entre colonne et trait */
+  }
+}
+
+
+</style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="hamburger" id="hamburger">
+      <div></div><div></div><div></div>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#illumine">Illumine</a></li>
+      <li><a href="#newsletter">Newsletter</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+
+<section class="hero" id="illumine">
+  <div class="hero-text-wrapper text-center">
+    <h1 class="hero-tagline">✨ Ensemble, illuminons l’humanité ✨</h1>
+    <div class="d-lg-none mt-3">
+      <a href="formulaire.html" target="_blank">
+        <button class="glow-button">🌍 Illumine</button>
+      </a>
+    </div>
+  </div>
+  <div class="form-overlay d-none d-lg-block">
+      <form id="causeForm">
+    <input type="text" name="nom" class="form-control mb-3" placeholder="Nom" required>
+            <input type="text" name="prenom" class="form-control mb-3" placeholder="Prénom" required>
+            <input type="email" name="email" class="form-control mb-3" placeholder="Adresse mail" required>
+            <input type="text" name="instagram" class="form-control mb-3" placeholder="@instagram">
+
+            <select name="pays" class="form-select mb-3" required>
+              <option value="">-- Ton pays --</option>
+              <option value="AF">Afghanistan</option>
+              <option value="ZA">Afrique du Sud</option>
+              <option value="AL">Albanie</option>
+              <option value="DZ">Algérie</option>
+              <option value="DE">Allemagne</option>
+              <option value="AD">Andorre</option>
+              <option value="AO">Angola</option>
+              <option value="SA">Arabie saoudite</option>
+              <option value="AR">Argentine</option>
+              <option value="AM">Arménie</option>
+              <option value="AU">Australie</option>
+              <option value="AT">Autriche</option>
+              <option value="AZ">Azerbaïdjan</option>
+              <option value="BE">Belgique</option>
+              <option value="BJ">Bénin</option>
+              <option value="BO">Bolivie</option>
+              <option value="BR">Brésil</option>
+              <option value="BG">Bulgarie</option>
+              <option value="BF">Burkina Faso</option>
+              <option value="BI">Burundi</option>
+              <option value="CM">Cameroun</option>
+              <option value="CA">Canada</option>
+              <option value="CL">Chili</option>
+              <option value="CN">Chine</option>
+              <option value="CO">Colombie</option>
+              <option value="CG">Congo</option>
+              <option value="KR">Corée du Sud</option>
+              <option value="CR">Costa Rica</option>
+              <option value="CI">Côte d’Ivoire</option>
+              <option value="HR">Croatie</option>
+              <option value="DK">Danemark</option>
+              <option value="EG">Égypte</option>
+              <option value="AE">Émirats arabes unis</option>
+              <option value="EC">Équateur</option>
+              <option value="ES">Espagne</option>
+              <option value="US">États-Unis</option>
+              <option value="EE">Estonie</option>
+              <option value="ET">Éthiopie</option>
+              <option value="FI">Finlande</option>
+              <option value="FR">France</option>
+              <option value="GA">Gabon</option>
+              <option value="GM">Gambie</option>
+              <option value="GE">Géorgie</option>
+              <option value="GH">Ghana</option>
+              <option value="GR">Grèce</option>
+              <option value="GN">Guinée</option>
+              <option value="HT">Haïti</option>
+              <option value="HU">Hongrie</option>
+              <option value="IN">Inde</option>
+              <option value="ID">Indonésie</option>
+              <option value="IQ">Irak</option>
+              <option value="IR">Iran</option>
+              <option value="IE">Irlande</option>
+              <option value="IS">Islande</option>
+              <option value="IT">Italie</option>
+              <option value="JP">Japon</option>
+              <option value="JO">Jordanie</option>
+              <option value="KZ">Kazakhstan</option>
+              <option value="KE">Kenya</option>
+              <option value="KW">Koweït</option>
+              <option value="LV">Lettonie</option>
+              <option value="LB">Liban</option>
+              <option value="LY">Libye</option>
+              <option value="LT">Lituanie</option>
+              <option value="LU">Luxembourg</option>
+              <option value="MG">Madagascar</option>
+              <option value="MY">Malaisie</option>
+              <option value="ML">Mali</option>
+              <option value="MA">Maroc</option>
+              <option value="MX">Mexique</option>
+              <option value="MD">Moldavie</option>
+              <option value="MC">Monaco</option>
+              <option value="ME">Monténégro</option>
+              <option value="MZ">Mozambique</option>
+              <option value="NA">Namibie</option>
+              <option value="NP">Népal</option>
+              <option value="NI">Nicaragua</option>
+              <option value="NE">Niger</option>
+              <option value="NG">Nigéria</option>
+              <option value="NO">Norvège</option>
+              <option value="NZ">Nouvelle-Zélande</option>
+              <option value="OM">Oman</option>
+              <option value="PK">Pakistan</option>
+              <option value="PS">Palestine</option>
+              <option value="PA">Panama</option>
+              <option value="PG">Papouasie-Nouvelle-Guinée</option>
+              <option value="NL">Pays-Bas</option>
+              <option value="PE">Pérou</option>
+              <option value="PH">Philippines</option>
+              <option value="PL">Pologne</option>
+              <option value="PT">Portugal</option>
+              <option value="QA">Qatar</option>
+              <option value="RO">Roumanie</option>
+              <option value="RU">Russie</option>
+              <option value="RW">Rwanda</option>
+              <option value="SN">Sénégal</option>
+              <option value="RS">Serbie</option>
+              <option value="SG">Singapour</option>
+              <option value="SK">Slovaquie</option>
+              <option value="SI">Slovénie</option>
+              <option value="SO">Somalie</option>
+              <option value="SD">Soudan</option>
+              <option value="SE">Suède</option>
+              <option value="CH">Suisse</option>
+              <option value="SY">Syrie</option>
+              <option value="TJ">Tadjikistan</option>
+              <option value="TZ">Tanzanie</option>
+              <option value="TH">Thaïlande</option>
+              <option value="TN">Tunisie</option>
+              <option value="TR">Turquie</option>
+              <option value="UA">Ukraine</option>
+              <option value="GB">Royaume-Uni</option>
+              <option value="UY">Uruguay</option>
+              <option value="UZ">Ouzbékistan</option>
+              <option value="VE">Venezuela</option>
+              <option value="VN">Vietnam</option>
+              <option value="YE">Yémen</option>
+              <option value="ZM">Zambie</option>
+              <option value="ZW">Zimbabwe</option>
+            </select>
+
+            <select name="cause" class="form-select mb-3" required>
+              <option value="">-- Cause défendue --</option>
+              <option value="persecutes">🕊️ Peuples persécutés</option>
+              <option value="malnutrition">🍽️ Malnutrition</option>
+              <option value="pauvrete">💰 Pauvreté</option>
+              <option value="education">📚 Accès à l’éducation</option>
+            </select>
+
+    <button type="submit">Envoyer</button>
+  </form>
+    </div>
+  </section>
+
+<!-- NEWSLETTER + CONTACT ensemble -->
+<section id="newsletter-contact" class="py-5 bg-dark-sect text-white">
+  <div class="container">
+    <div class="row align-items-start">
+      <!-- Newsletter -->
+      <div class="col-md-6 mb-4 mb-md-0 pe-md-4 border-end">
+        <h2 class="section-title">📬 Inscrivez-vous à la Newsletter</h2>
+        <p class="section-subtitle">Recevez nos dernières actualités et projets humanitaires par e‑mail.</p>
+        <form id="newsletter-form" class="d-flex flex-column align-items-center gap-3">
+          <input type="email" name="email" class="form-control me-sm-2 mb-2 mb-sm-0" placeholder="Votre e‑mail" required>
+          <button type="submit" class="btn btn-success">S'inscrire</button>
+        </form>
+        <div id="confirmation-message" class="mt-3 text-success fw-bold"></div>
+      </div>
+      <!-- Contact -->
+      <div class="col-md-6 ps-md-4">
+        <h2 class="section-title">📱 Contactez-nous</h2>
+        <p class="section-subtitle">Suivez-nous et interagissez avec notre communauté.</p>
+        <div class="social-btns d-flex gap-2">
+          <a href="https://www.instagram.com/u.manit.y" target="_blank" class="btn btn-outline-light social-btn">
+            <i class="bi bi-instagram"></i> 📸 Instagram
+          </a>
+          <a href="https://www.tiktok.com/@u.manit.y" target="_blank" class="btn btn-outline-light social-btn">
+            <i class="bi bi-music-note-beamed"></i> 🎵 TikTok
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+  <!-- FOOTER -->
+  <footer>
+    <ul>
+      <li><a href="#illumine">Illumine</a></li>
+      <li><a href="#newsletter">Newsletter</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <p>© UmanitY</p>
+  </footer>
+  <!-- JavaScript -->
+ 
+ <script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 🌐 NAVBAR responsive
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+
+  hamburger?.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+  });
+
+  document.querySelectorAll('.nav-links a')?.forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      hamburger.classList.remove('active');
+    });
+  });
+
+  // ✅ Fonction d'affichage de confirmation
+  function showConfirmation(target, message, success = true) {
+    const msg = document.createElement("div");
+    msg.className = success ? "confirmation-message" : "error-message";
+    msg.innerHTML = message;
+    target.appendChild(msg);
+
+    requestAnimationFrame(() => msg.style.opacity = "1");
+
+    setTimeout(() => {
+      msg.style.opacity = "0";
+      setTimeout(() => msg.remove(), 500);
+    }, 4000);
+  }
+
+  // 📝 FORMULAIRE PRINCIPAL
+  const causeForm = document.getElementById('causeForm');
+  if (causeForm) {
+    causeForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const data = Object.fromEntries(new FormData(this).entries());
+
+      fetch('https://umanity-backend-site-final-1.onrender.com/api/formulaire', {
+
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+        .then(res => res.json())
+        .then(() => {
+          showConfirmation(this, "✅ Merci, votre message a bien été envoyé !");
+          this.reset();
+        })
+        .catch(error => {
+          console.error('Erreur formulaire:', error);
+          alert("❌ Une erreur est survenue. Veuillez réessayer plus tard.");
+        });
+    });
+  }
+
+  // 📩 FORMULAIRE NEWSLETTER
+  const newsletterForm = document.getElementById('newsletter-form');
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const email = this.email.value;
+      const msgContainer = document.getElementById("confirmation-message");
+
+      fetch('https://umanity-backend-site-final-1.onrender.com/api/newsletter', {
+
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      })
+        .then(res => {
+          if (res.status === 409) throw new Error('Déjà inscrit');
+          return res.json();
+        })
+        .then(() => {
+          showConfirmation(msgContainer, "✅ Merci pour votre inscription !");
+          this.reset();
+        })
+        .catch(error => {
+          const msg = error.message === 'Déjà inscrit'
+            ? "🚫 Vous êtes déjà inscrit à la newsletter."
+            : "❌ Une erreur est survenue. Veuillez réessayer.";
+          showConfirmation(msgContainer, msg, false);
+        });
+    });
+  }
+});
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formulaire - UmanitY</title>
+  <!-- Bootstrap CSS & Google Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Réutilisation des mêmes styles */
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+      padding: 2rem;
+    }
+    .form-container {
+      max-width: 400px;
+      margin: 3rem auto;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 2rem;
+      border-radius: 10px;
+    }
+    .form-container input,
+    .form-container select,
+    .form-container button {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+      border: none;
+      font-size: 1rem;
+    }
+    .form-container input, .form-container select {
+      color: #000;
+    }
+    .form-container button {
+      background-color: #00b894;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: box-shadow 0.3s;
+    }
+    .form-container button:hover {
+      box-shadow: 0 0 12px #00b894;
+    }
+    .confirmation-message {
+      background: #00b894;
+      color: white;
+      padding: 1rem;
+      margin-top: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      animation: fadeIn 0.4s ease-in-out forwards;
+      opacity: 0;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2 style="font-family:'Poppins', sans-serif; margin-bottom:1rem;">Participez à notre action</h2>
+     <form id="causeForm">
+    <input type="text" name="nom" class="form-control mb-3" placeholder="Nom" required>
+            <input type="text" name="prenom" class="form-control mb-3" placeholder="Prénom" required>
+            <input type="email" name="email" class="form-control mb-3" placeholder="Adresse mail" required>
+            <input type="text" name="instagram" class="form-control mb-3" placeholder="@instagram">
+
+            <select name="pays" class="form-select mb-3" required>
+              <option value="">-- Ton pays --</option>
+              <option value="AF">Afghanistan</option>
+              <option value="ZA">Afrique du Sud</option>
+              <option value="AL">Albanie</option>
+              <option value="DZ">Algérie</option>
+              <option value="DE">Allemagne</option>
+              <option value="AD">Andorre</option>
+              <option value="AO">Angola</option>
+              <option value="SA">Arabie saoudite</option>
+              <option value="AR">Argentine</option>
+              <option value="AM">Arménie</option>
+              <option value="AU">Australie</option>
+              <option value="AT">Autriche</option>
+              <option value="AZ">Azerbaïdjan</option>
+              <option value="BE">Belgique</option>
+              <option value="BJ">Bénin</option>
+              <option value="BO">Bolivie</option>
+              <option value="BR">Brésil</option>
+              <option value="BG">Bulgarie</option>
+              <option value="BF">Burkina Faso</option>
+              <option value="BI">Burundi</option>
+              <option value="CM">Cameroun</option>
+              <option value="CA">Canada</option>
+              <option value="CL">Chili</option>
+              <option value="CN">Chine</option>
+              <option value="CO">Colombie</option>
+              <option value="CG">Congo</option>
+              <option value="KR">Corée du Sud</option>
+              <option value="CR">Costa Rica</option>
+              <option value="CI">Côte d’Ivoire</option>
+              <option value="HR">Croatie</option>
+              <option value="DK">Danemark</option>
+              <option value="EG">Égypte</option>
+              <option value="AE">Émirats arabes unis</option>
+              <option value="EC">Équateur</option>
+              <option value="ES">Espagne</option>
+              <option value="US">États-Unis</option>
+              <option value="EE">Estonie</option>
+              <option value="ET">Éthiopie</option>
+              <option value="FI">Finlande</option>
+              <option value="FR">France</option>
+              <option value="GA">Gabon</option>
+              <option value="GM">Gambie</option>
+              <option value="GE">Géorgie</option>
+              <option value="GH">Ghana</option>
+              <option value="GR">Grèce</option>
+              <option value="GN">Guinée</option>
+              <option value="HT">Haïti</option>
+              <option value="HU">Hongrie</option>
+              <option value="IN">Inde</option>
+              <option value="ID">Indonésie</option>
+              <option value="IQ">Irak</option>
+              <option value="IR">Iran</option>
+              <option value="IE">Irlande</option>
+              <option value="IS">Islande</option>
+              <option value="IT">Italie</option>
+              <option value="JP">Japon</option>
+              <option value="JO">Jordanie</option>
+              <option value="KZ">Kazakhstan</option>
+              <option value="KE">Kenya</option>
+              <option value="KW">Koweït</option>
+              <option value="LV">Lettonie</option>
+              <option value="LB">Liban</option>
+              <option value="LY">Libye</option>
+              <option value="LT">Lituanie</option>
+              <option value="LU">Luxembourg</option>
+              <option value="MG">Madagascar</option>
+              <option value="MY">Malaisie</option>
+              <option value="ML">Mali</option>
+              <option value="MA">Maroc</option>
+              <option value="MX">Mexique</option>
+              <option value="MD">Moldavie</option>
+              <option value="MC">Monaco</option>
+              <option value="ME">Monténégro</option>
+              <option value="MZ">Mozambique</option>
+              <option value="NA">Namibie</option>
+              <option value="NP">Népal</option>
+              <option value="NI">Nicaragua</option>
+              <option value="NE">Niger</option>
+              <option value="NG">Nigéria</option>
+              <option value="NO">Norvège</option>
+              <option value="NZ">Nouvelle-Zélande</option>
+              <option value="OM">Oman</option>
+              <option value="PK">Pakistan</option>
+              <option value="PS">Palestine</option>
+              <option value="PA">Panama</option>
+              <option value="PG">Papouasie-Nouvelle-Guinée</option>
+              <option value="NL">Pays-Bas</option>
+              <option value="PE">Pérou</option>
+              <option value="PH">Philippines</option>
+              <option value="PL">Pologne</option>
+              <option value="PT">Portugal</option>
+              <option value="QA">Qatar</option>
+              <option value="RO">Roumanie</option>
+              <option value="RU">Russie</option>
+              <option value="RW">Rwanda</option>
+              <option value="SN">Sénégal</option>
+              <option value="RS">Serbie</option>
+              <option value="SG">Singapour</option>
+              <option value="SK">Slovaquie</option>
+              <option value="SI">Slovénie</option>
+              <option value="SO">Somalie</option>
+              <option value="SD">Soudan</option>
+              <option value="SE">Suède</option>
+              <option value="CH">Suisse</option>
+              <option value="SY">Syrie</option>
+              <option value="TJ">Tadjikistan</option>
+              <option value="TZ">Tanzanie</option>
+              <option value="TH">Thaïlande</option>
+              <option value="TN">Tunisie</option>
+              <option value="TR">Turquie</option>
+              <option value="UA">Ukraine</option>
+              <option value="GB">Royaume-Uni</option>
+              <option value="UY">Uruguay</option>
+              <option value="UZ">Ouzbékistan</option>
+              <option value="VE">Venezuela</option>
+              <option value="VN">Vietnam</option>
+              <option value="YE">Yémen</option>
+              <option value="ZM">Zambie</option>
+              <option value="ZW">Zimbabwe</option>
+            </select>
+
+            <select name="cause" class="form-select mb-3" required>
+              <option value="">-- Cause défendue --</option>
+              <option value="persecutes">🕊️ Peuples persécutés</option>
+              <option value="malnutrition">🍽️ Malnutrition</option>
+              <option value="pauvrete">💰 Pauvreté</option>
+              <option value="education">📚 Accès à l’éducation</option>
+            </select>
+    <button type="submit">Envoyer</button>
+  </form>
+    <div id="form-confirm" class="confirmation-message"></div>
+  </div>
+  </div>
+
+  <script>
+  document.getElementById('causeForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch('http://localhost:3000/api/participation', { // note l'URL complète
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (!response.ok) throw new Error('Erreur serveur');
+
+      const msg = document.getElementById('form-confirm');
+      msg.innerHTML = "✅ Merci, votre participation a bien été enregistrée !";
+      msg.style.opacity = '1';
+      form.reset();
+
+      setTimeout(() => {
+        msg.style.opacity = '0';
+        setTimeout(() => msg.innerHTML = '', 500);
+      }, 4000);
+    } catch (err) {
+      alert("❌ Une erreur est survenue. Veuillez réessayer plus tard.");
+    }
+  });
+</script>
+
+
+</body>
+</html>
+
