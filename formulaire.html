@@ -213,7 +213,7 @@
 
       const data = Object.fromEntries(new FormData(this).entries());
 
-      fetch('http://localhost:3000/api/formulaire', {
+      fetch('https://umanity-backend-site-final-1.onrender.com/api/formulaire', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
