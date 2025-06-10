@@ -171,10 +171,25 @@
     max-width: 400px;
     width: 100%;
   }
+  
+  .imput-white {
+     background-color:white;
+     color:black;
+     border-radius:8px;
+     padding: 0.75rem 1rem;
+     width:100%;
+     border:1px solid #00e6c5;
+  }
+  
+  .imput-white::placeholder {
+     color:#888;
+     font-style:italic;
+  }
 
 .form-overlay input,
     .form-overlay select,
     .form-overlay button {
+      background-color:white;
       width: 100%;
       margin-bottom: 1rem;
       padding: 0.75rem;
@@ -407,8 +422,8 @@
     </div>
     <ul class="nav-links" id="nav-links">
       <li><a href="#illumine">Illumine</a></li>
-      <li><a href="#newsletter">Newsletter</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#newsletter-contact">Newsletter</a></li>
+      <li><a href="#newsletter-contact">Contact</a></li>
     </ul>
   </nav>
 
@@ -424,10 +439,10 @@
   </div>
   <div class="form-overlay d-none d-lg-block">
       <form id="causeForm">
-    <input type="text" name="nom" class="form-control mb-3" placeholder="Nom" required>
-            <input type="text" name="prenom" class="form-control mb-3" placeholder="Prénom" required>
-            <input type="email" name="email" class="form-control mb-3" placeholder="Adresse mail" required>
-            <input type="text" name="instagram" class="form-control mb-3" placeholder="@instagram">
+    <input type="text" name="nom" class="imput-white" placeholder="Nom"required>
+            <input type="text" name="prenom" class="imput-white" placeholder="Prénom" required>
+            <input type="email" name="email" class="imput-white" placeholder="Adresse mail"required>
+            <input type="text" name="instagram" class="imput-white" placeholder="@instagram">
 
             <select name="pays" class="form-select mb-3" required>
               <option value="">-- Ton pays --</option>
@@ -603,8 +618,8 @@
   <footer>
     <ul>
       <li><a href="#illumine">Illumine</a></li>
-      <li><a href="#newsletter">Newsletter</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#newsletter-contact">Newsletter</a></li>
+      <li><a href="#newsletter-contact">Contact</a></li>
     </ul>
     <p>© UmanitY</p>
   </footer>
