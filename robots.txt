@@ -1,5 +1,10 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://umanity-frontend-1.vercel.app/sitemap.xml
+# Sitemap (permet aux moteurs de trouver ton sitemap)
+Sitemap: https://umanity-frontend.vercel.app/sitemap.xml
+
+# Optionnel : bloque certains dossiers techniques si besoin
+# Disallow: /wp-admin/
+# Disallow: /wp-includes/
 
