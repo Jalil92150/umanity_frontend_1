@@ -12,7 +12,7 @@
   <!-- Open Graph (Facebook, LinkedIn...) -->
   <meta property="og:title" content="UmanitY - Mouvement Humanitaire">
   <meta property="og:description" content="Participe à notre mouvement pour illuminer l’humanité. Rejoins-nous.">
-  <meta property="og:image" content="https://umanity-frontend.vercel.app/images/humanitaire2.webp">
+  <meta property="og:image" content="https://umanity-frontend.vercel.app/images/humanitaire.webp">
   <meta property="og:url" content="https://umanity-frontend.vercel.app">
   <meta property="og:type" content="website">
 
@@ -20,7 +20,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="UmanitY - Mouvement Humanitaire">
   <meta name="twitter:description" content="Agis pour l’humanité. Rejoins notre mouvement.">
-  <meta name="twitter:image" content="https://umanity-frontend.vercel.app/images/humanitaire2.webp">
+  <meta name="twitter:image" content="https://umanity-frontend.vercel.app/images/humanitaire.webp">
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://umanity-frontend.vercel.app/">
@@ -225,10 +225,18 @@
   justify-content: center;
   padding: 3rem;
   overflow: hidden;
-
-  background:
-    url('images/humanitaire2.webp') center center / cover no-repeat;
 }
+  @media (min-width: 992px) {
+    .hero {
+     background:url('images/humanitaire.webp') center center / cover no-repeat;
+    }
+  }
+  
+  @media (max-width: 991px) {
+    .hero {
+     background:url('images/essai.webp') center center / cover no-repeat;
+    }
+  }
 
 .hero-text-wrapper {
   position: absolute;
@@ -622,13 +630,15 @@
 
   <!-- HERO SECTION -->
   <section class="hero" id="illumine">
-  <img src="images/humanitaire2.webp"
-     alt="Photo humanitaire illustrant le mouvement solidaire UmanitY"
-     width="800"
-     height="600"
-     style="display: none;"
-     loading="lazy"
-  >
+  <!-- Images SEO-friendly pour Google -->
+  <picture style="display: none;">
+    <source media="(min-width: 992px)" srcset="images/humanitaire.webp">
+    <img src="images/essai.webp"
+       alt="Un homme brandit un parapluie jaune et un drapeau palestinien sur une colline"
+       width="1920" height="1080"
+       loading="lazy" />
+    </picture>
+
     <div class="hero-text-wrapper text-center">
       <h1 class="hero-tagline">✨ Ensemble, illuminons l’humanité ✨</h1>
       <div class="d-lg-none mt-3">
