@@ -12,7 +12,7 @@
   <!-- Open Graph (Facebook, LinkedIn...) -->
   <meta property="og:title" content="UmanitY - Mouvement Humanitaire">
   <meta property="og:description" content="Participe à notre mouvement pour illuminer l’humanité. Rejoins-nous.">
-  <meta property="og:image" content="https://umanity-frontend.vercel.app/images/humanitaire.jpg">
+  <meta property="og:image" content="https://umanity-frontend.vercel.app/images/humanitaire2.webp">
   <meta property="og:url" content="https://umanity-frontend.vercel.app">
   <meta property="og:type" content="website">
 
@@ -20,7 +20,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="UmanitY - Mouvement Humanitaire">
   <meta name="twitter:description" content="Agis pour l’humanité. Rejoins notre mouvement.">
-  <meta name="twitter:image" content="https://umanity-frontend.vercel.app/images/humanitaire.jpg">
+  <meta name="twitter:image" content="https://umanity-frontend.vercel.app/images/humanitaire2.webp">
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://umanity-frontend.vercel.app/">
@@ -66,15 +66,17 @@
   gap: 1.3rem;
 }
 .navbar-logo {
-  font-family: 'Bebas Neue', Arial, sans-serif;
-  font-size: 1.5rem;
-  color: #fff;
-  letter-spacing: 2px;
-  font-weight: bold;
-  text-shadow: 0 2px 14px #00e6c555;
-  user-select: none;
-  transition: color 0.22s;
+  display: flex;
+  align-items: center;
 }
+
+.logo-img {
+  width:100px;
+  max-width: 300px;
+  object-fit: contain;
+}
+
+
 .navbar-tagline,
 .navbar-tagline-mobile {
   color: #00e6c5;
@@ -152,7 +154,7 @@
   left: 7%; right: 7%; bottom: 1px;
   height: 3px;
   border-radius: 2px;
-  background: linear-gradient(90deg, #00e6c5 20%, #00b894 80%);
+  background: linear-gradient(90deg, #00cfff 10%, #00e6c5 90%);
   opacity: 0;
   transform: scaleX(0.1);
   transition: opacity 0.21s, transform 0.21s cubic-bezier(.63,0,.21,1.08);
@@ -165,9 +167,9 @@
 }
 .nav-anim:hover,
 .nav-anim:focus {
-  color: #00e6c5 !important;
-  text-shadow: 0 0 16px #00e6c5;
-  background: rgba(0, 230, 197, 0.05);
+  color: #00cfff !important;
+  text-shadow: 0 0 16px #00cfff;
+  background: rgba(0, 230, 255, 0.07);
 }
 @media (max-width: 991.98px) {
   .navbar-tagline { font-size: 1rem; }
@@ -182,7 +184,7 @@
     top: 56px; right: 0; left: 0;
     width: 100vw;
     gap: 1.15rem;
-     background:none !important;
+    background:none !important;
     box-shadow:none !important;
     padding: 1.25rem 1.2rem 1.3rem 0;
     border-radius: 0 0 16px 16px;
@@ -210,17 +212,18 @@
   .navbar-tagline-mobile { font-size: 0.93rem; }
 }
   .hero {
-    position: relative;
-    height: 100vh;
-    background: url('images/msh-bg2.svg') no-repeat center/cover;
-    min-height: 100vh;
-    min-height:100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 3rem;
-    overflow: hidden;
-  }
+  position: relative;
+  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  overflow: hidden;
+
+  background:
+    url('images/humanitaire2.webp') center center / cover no-repeat;
+}
 
 .hero-text-wrapper {
   position: absolute;
@@ -235,8 +238,8 @@
 .hero-tagline {
   font-family: 'Poppins', sans-serif;
   font-size: 2rem;
-  color: #00e6c5;
-  animation: fadeGlow 2.5s ease-in-out infinite alternate;
+  color: #00cfff;
+  animation: glowBlue 2.6s ease-in-out infinite alternate;
   word-wrap: break-word;
   line-height: 1.3;
 }
@@ -245,7 +248,7 @@
 @media (min-width: 992px) {
   .hero-text-wrapper {
     max-width: 60%;
-    top: 8%;
+    top: 12%;
   }
 }
 
@@ -593,7 +596,9 @@
   <!-- NAVBAR -->
   <nav class="navbar-custom">
   <div class="navbar-left">
-    <span class="navbar-logo">UmanitY</span>
+    <a href="#" class="navbar-logo">
+      <img src="images/logo3.png" alt="Logo UmanitY" class="logo-img">
+    </a>
   </div>
   <button class="navbar-toggle" id="navbar-toggle" aria-label="Menu">
     <span></span>
@@ -612,6 +617,13 @@
 
   <!-- HERO SECTION -->
   <section class="hero" id="illumine">
+  <img src="images/humanitaire2.webp"
+     alt="Photo humanitaire illustrant le mouvement solidaire UmanitY"
+     width="800"
+     height="600"
+     style="display: none;"
+     loading="lazy"
+  >
     <div class="hero-text-wrapper text-center">
       <h1 class="hero-tagline">✨ Ensemble, illuminons l’humanité ✨</h1>
       <div class="d-lg-none mt-3">
