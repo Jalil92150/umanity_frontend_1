@@ -25,9 +25,14 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://umanity-frontend.vercel.app/">
 
-  <!-- Bootstrap & Fonts -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Google Fonts async -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@400;600&display=swap" media="print" onload="this.media='all'">
+
+<!-- Bootstrap async -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" media="print" onload="this.media='all'">
+
 </head>
  <style>
   :root {
@@ -597,7 +602,7 @@
   <nav class="navbar-custom">
   <div class="navbar-left">
     <a href="#" class="navbar-logo">
-      <img src="images/logo3.png" alt="Logo UmanitY" class="logo-img">
+      <img src="images/logo3.webp" alt="Logo UmanitY" class="logo-img" width="100" height="100" loading="lazy">
     </a>
   </div>
   <button class="navbar-toggle" id="navbar-toggle" aria-label="Menu">
